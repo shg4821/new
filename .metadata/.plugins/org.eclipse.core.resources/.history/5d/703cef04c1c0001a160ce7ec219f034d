@@ -1,0 +1,49 @@
+package com.wip.bp.DAO;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
+
+import com.wip.bp.PostV;
+
+@Repository
+public class BoardDAOImp implements BoardDAO {
+	
+	
+	private static final String NAMESPACE = "com.wip.bp.mapper.BoardMapper";
+	
+	private final SqlSessionFactory sqlSession;
+	
+	@Inject
+	public BoardDAOImp(SqlSessionFactory sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+
+	@Override
+	public void create(PostV postV) throws Exception {
+		sqlSession.insert(NAMESPACE + ".create", postV);
+	}
+
+	@Override
+	public PostV read(Integer postNo) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".read", postNo);
+	}
+
+	@Override
+	public void update(PostV postV) throws Exception {
+		sqlSession.update(NAMESPACE + ".update", postV);
+	}
+
+	@Override
+	public void delete(Integer postNo) throws Exception {
+		sqlSession.delete(NAMESPACE + ".delete", postNo);
+	}
+
+	@Override
+	public List<PostV> listAll() throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".listAll");
+	}
+}

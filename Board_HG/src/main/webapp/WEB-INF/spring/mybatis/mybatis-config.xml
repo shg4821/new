@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="PostV" type="com.wi.bhg.PostV" />
+		<package name="com.wi.bhg" />
+	</typeAliases>
+	<typeHandlers>
+		<typeHandler
+			handler="org.apache.ibatis.type.SqlDateTypeHandler"
+			javaType="java.sql.Date" jdbcType="DATE" />
+	</typeHandlers>
+
+	<mappers>
+		<mapper resource="/resources/mapper/BoardMapper" />
+		<package name="com.wi.bhg" />
+		<!-- <mapper class="com.wi.bp.PostV" /> -->
+		<!-- <mapper url="file://mapper/board/BoardMapper.xml" /> -->
+	</mappers>
+
+</configuration>

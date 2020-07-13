@@ -1,0 +1,22 @@
+package com.wi.bhg.Service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.wi.bhg.PostV;
+
+@Service
+public interface BoardService {
+	
+	void create(PostV postV) throws Exception;
+
+	PostV read(int postNo) throws Exception;
+
+	void update(PostV postV) throws Exception;
+
+	void delete(int postNo) throws Exception;
+
+	List<PostV> listAll() throws Exception;
+
+}

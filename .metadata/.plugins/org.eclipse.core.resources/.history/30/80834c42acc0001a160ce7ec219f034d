@@ -1,0 +1,1 @@
+log4jdbc.spylogdelegator.name=net.sf.log4jdbc.log.slj4j.Slf4jSpylLogDelegator

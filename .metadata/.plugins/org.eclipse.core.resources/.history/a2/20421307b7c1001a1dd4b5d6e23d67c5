@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wip.bp.DAO.BoardDAO">
+
+	<insert id="create">
+		INSERT INTO
+		POST (P_NO, P_TITLE, P_CON, M_NAME,
+		P_DATE)
+		VALUES (SEQ_P_NO.NEXTVAL, #{p_TITLE}, #{p_CON}, #{m_NAME}, SYSDATE)
+	</insert>
+
+	<select id="read" resultType="com.wip.bp.PostV">
+		SELECT P_NO, P_TITLE, P_CON, M_NAME,
+		P_DATE, P_CDATE,
+		P_VIEW
+		FROM POST
+		WHERE P_NO = #{p_NO}
+	</select>
+
+	<update id="update">
+		update POST
+		SET P_TITLE = #{p_TITLE}, P_CON =
+		#{p_CON}, P_CDATE = SYSDATE
+		WHERE P_NO = #{p_NO}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM POST
+		WHERE P_NO = #{p_NO}
+	</delete>
+
+	<select id="listAll" resultType="com.wip.bp.PostV">
+		<![CDATA[
+		SELECT P_NO, P_TITLE, P_CON, M_NAME, P_DATE, P_CDATE, P_VIEW
+		FROM POST
+		WHERE P_NO > 0
+		ORDER BY P_NO
+		]]>
+	</select>
+
+	<resultMap type="PostV" id="BoardResultMap">
+		<id property="P_NO" column="P_NO" />
+		<result property="P_TITLE" column="P_TITLE" />
+		<result property="P_CON" column="P_CON" />
+		<result property="M_NAME" column="M_NAME" />
+		<result property="P_DATE" column="P_DATE" />
+		<result property="P_CDATE" column="P_CDATE" />
+		<result property="P_VIEW" column="P_VIEW" />
+	</resultMap>
+
+</mapper>

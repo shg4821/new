@@ -1,0 +1,145 @@
+package com.wi.bhg.Controller;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.wi.bhg.Service.BoardService;
+import com.wi.bhg.PostV;
+
+/**
+ * Handles requests for the application home page.
+ */
+@Controller
+public class HomeController {
+
+	@Autowired
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+	@Autowired
+	private final BoardService boardService;
+
+	@Inject
+	public HomeController(BoardService boardService) {
+		this.boardService = boardService;
+	}
+
+	// 글목록
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public String pList(Model model) throws Exception {
+
+		logger.info("글 목록");
+		model.addAttribute("Post", boardService.listAll());
+
+		return "home";
+	}
+
+	// 글 작성
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String pWrite() {
+
+		logger.info("글 작성");
+
+		return "/write";
+	}
+
+	// 작성한 글 등록
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String pWriteP(PostV postV, RedirectAttributes redirectAttributes) throws Exception {
+
+		logger.info("글 등록 ");
+		logger.info(postV.toString());
+		boardService.create(postV);
+		redirectAttributes.addFlashAttribute("msg", "regSuccess");
+
+		return "redirect:/write";
+	}
+
+	// 글 조회
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String pRead(@RequestParam("postNo") int postNo, Model model) throws Exception {
+
+		logger.info("글 조회");
+		model.addAttribute("Post", boardService.read(postNo));
+
+		return "/read";
+	}
+
+	// 글 수정
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public String pModify(@RequestParam("postNo") int postNo, Model model) throws Exception {
+
+		logger.info("글 수정 ");
+		model.addAttribute("Post", boardService.read(postNo));
+
+		return "/modify";
+	}
+
+	// 수정한 글 등록
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String pModifyP(PostV postV, RedirectAttributes redirectAttributes) throws Exception {
+
+		logger.info("글 수정 ");
+		boardService.update(postV);
+		redirectAttributes.addFlashAttribute("msg", "modSuccess");
+
+		return "redirect:/modify";
+	}
+
+	// 글 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String pDeleteP(@RequestParam("postNo") int postNo, RedirectAttributes redirectAttributes) throws Exception {
+
+		logger.info("글 삭제 ");
+		boardService.delete(postNo);
+		redirectAttributes.addFlashAttribute("msg", "delSuccess");
+
+		return "redirect:/home";
+	}
+
+	// 글 목록 불러오기
+//	public String postList() throws SQLException {
+//		// 변수 
+//		StringBuffer pL = new StringBuffer();
+//		ResultSet postL = Cdb.executeQuery(String.format(
+//		"SELECT P_NO, P_TITLE, P_CON, M_NAME, P_DATE, P_CDATE, P_VIEW FROM POST"));
+//		// 옵션밸류 
+//		while (postL.next()) {
+//			pL.append("<tr>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("P_NO"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("P_TITLE"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("P_CON"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("M_NAME"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("P_DATE"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("P_CDATE"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append(postL.getString("P_VIEW"));
+//			pL.append("</td>");
+//			pL.append("<td>");
+//			pL.append("</tr>");
+//		}
+//		return pL.toString();
+//		
+//	}
+
+}

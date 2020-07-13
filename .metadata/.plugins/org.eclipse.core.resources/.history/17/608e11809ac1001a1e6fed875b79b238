@@ -1,0 +1,192 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+
+<html>
+<head>
+<title>SPRING MVC HOME</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- bootstrap -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQjery -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- jQjery -->
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<style>
+.fakeimg {
+	height: 200px;
+	background: #aaa;
+}
+</style>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: left;
+}
+
+button[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+
+.col-30 {
+	float: left;
+	width: 29%;
+	margin-top: 6px;
+	text-align: right;
+}
+
+.col-40 {
+	float: left;
+	width: 40%;
+	margin-top: 6px;
+}
+
+.col-100 {
+	float: left;
+	width: 100%;
+	margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.col-25, .col-75, input[type=submit] {
+		width: 100%;
+		margin-top: 0;
+	}
+}
+/* 글목록 테이블  */
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: center;
+	padding: 8px;
+}
+
+thead {
+	border-top: black 3px solid;
+	border-bottom: solid 2px #ED1C24;
+	background-color: #131230;
+	color: white;
+	font-size: 14px;
+	text-shadow: #ED1C24 0px 0px;
+	padding: 10px 0px;
+}
+
+tr:nth-child(even) {
+	background-color: #eaeaea;
+}
+
+.pTable {
+	height: 400px;
+}
+
+/* 페이징 리스트  */
+.pagination {
+	text-align: center;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+}
+
+.pagination ul {
+	justify-content: center;
+}
+
+.pagination li {
+	display: inline-block;
+	margin-right: 5px !important;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.pagination a {
+	display: inline-block;
+	margin-right: 5px !important;
+	cursor: pointer;
+}
+
+.pagination a:hover, .active, .postTitle:hover, .btnLink:hover {
+	text-decoration: underline;
+	color: #ED1C24;
+}
+
+.disabled a {
+	visibility: hidden;
+}
+
+.postTitle, .btnLink {
+	font-weight: bold;
+	text-decoration: none;
+	color: #131230;
+}
+.btnLink {
+	color: white;
+}
+</style>
+</head>
+<body>
+	<div class="jumbotron text-center" style="margin-bottom: 0">
+		<h1>Board Test</h1>
+	</div>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="nav-link" href="/ma/">HOME</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="/bp/posts">Post</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="/bhg/member">Member</a></li>
+				<li class="nav-item"><a class="nav-link" href="/bhg/">Search</a>
+				</li>
+			</ul>
+		</div>
+	</nav>

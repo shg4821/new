@@ -1,0 +1,27 @@
+INDEX VERSION 1.131
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1983245420.index
+\board_p\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\405048805.index
+\hgBoard\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\623249835.index
+\board_p\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\886043562.index
+\hgBoard\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1608244396.index
+\board\src
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2695882554.index
+\Board_HG\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2011531156.index
+\board_p\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1204523737.index
+\board_07\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4153215434.index
+\board\src
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1686940460.index
+\mavenp\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1462946144.index
+\board_07\src\main\java
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2807077691.index
+\board\src
+C:\java\new\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4186897716.index
+\board_p\src\main\java

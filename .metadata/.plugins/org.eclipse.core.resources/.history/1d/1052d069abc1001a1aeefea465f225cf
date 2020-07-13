@@ -1,0 +1,53 @@
+package com.wip.bp.Service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.wip.bp.PostV;
+import com.wip.bp.DAO.BoardDAO;
+
+@Service
+public class BoardServiceImp implements BoardService {
+	
+	private final BoardDAO boardDAO;
+	
+	@Inject
+	public BoardServiceImp (BoardDAO boardDAO) {
+		this.boardDAO = boardDAO;
+	}
+
+	@Override
+	public void create(PostV postV) throws Exception {
+		// TODO Auto-generated method stub
+		boardDAO.create(postV);
+	}
+
+	@Override
+	public PostV read(int p_NO) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return boardDAO.read(p_NO);
+	}
+
+	@Override
+	public void update(PostV postV) throws Exception {
+		// TODO Auto-generated method stub
+		boardDAO.update(postV);
+	}
+
+	@Override
+	public void delete(int p_NO) throws Exception {
+		// TODO Auto-generated method stub
+		boardDAO.delete(p_NO);
+	}
+
+	@Override
+	public List<PostV> listAll() throws Exception {
+		// TODO Auto-generated method stub
+		return boardDAO.listAll();
+	}
+
+}

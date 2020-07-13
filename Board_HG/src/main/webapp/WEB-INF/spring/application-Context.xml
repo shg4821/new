@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="connectionMaker" class="com.wi.bhg.BoardDAO" />
+
+	<bean id="BoardDAO" class="com.wi.bhg.PostV">
+		<property name="P_NO" ref="P_NO" />
+		<property name="P_TITLE" ref="P_TITLE" />
+		<property name="P_CON" ref="P_CON" />
+		<property name="M_NAME" ref="M_NAME" />
+		<property name="P_DATE" ref="P_DATE" />
+		<property name="P_CDATE" ref="P_CDATE" />
+		<property name="P_VIEW" ref="P_VIEW" />
+	</bean>
+
+</beans>

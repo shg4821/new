@@ -1,0 +1,19 @@
+package com.wip.bp.Service;
+
+import java.util.List;
+
+import com.wip.bp.PostV;
+
+public interface BoardService {
+	
+	void create(PostV postV) throws Exception;
+
+	PostV read(int postNo) throws Exception;
+
+	void update(PostV postV) throws Exception;
+
+	void delete(int postNo) throws Exception;
+
+	List<PostV> listAll() throws Exception;
+
+}
